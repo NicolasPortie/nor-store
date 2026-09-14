@@ -16,7 +16,6 @@ function readStoredLocale(): Locale {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'en' || stored === 'pt') return stored;
   } catch {
-    /* private mode */
   }
   return 'pt';
 }
@@ -41,7 +40,6 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* private mode */
     }
   }, []);
 

@@ -12,7 +12,7 @@ export function SneakerSequence() {
         </div>
 
         <div className="product-image-stage sneaker-stage">
-          <img className="sneaker-shot" src="/assets/optimized/nor-001-sneaker-packshot-red.webp" alt={t.sneakerImageAlt} />
+          <img className="sneaker-shot" src="/assets/optimized/nor-001-sneaker-packshot-red.webp" alt={t.sneakerImageAlt} loading="lazy" decoding="async" />
         </div>
 
         <div className="product-detail-panel">

@@ -47,10 +47,13 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
-    window.localStorage.setItem(
-      BAG_KEY,
-      JSON.stringify(cart.map(({ id, quantity }) => ({ id, quantity }))),
-    );
+    try {
+      window.localStorage.setItem(
+        BAG_KEY,
+        JSON.stringify(cart.map(({ id, quantity }) => ({ id, quantity }))),
+      );
+    } catch {
+    }
   }, [cart]);
 
   const addProducts = (items: Product[]) => {

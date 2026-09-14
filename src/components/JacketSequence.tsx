@@ -12,7 +12,7 @@ export function JacketSequence() {
         </div>
 
         <div className="product-image-stage jacket-stage">
-          <img src="/assets/optimized/nor-tech-shell.webp" alt={t.jacketImageAlt} />
+          <img src="/assets/optimized/nor-tech-shell.webp" alt={t.jacketImageAlt} loading="lazy" decoding="async" />
         </div>
 
         <div className="product-detail-panel">

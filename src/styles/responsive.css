@@ -34,6 +34,13 @@
     justify-self: start;
     width: min(100%, 31rem);
   }
+  .drop-intro-figure .media-reveal {
+    height: auto;
+  }
+  .drop-intro-figure img {
+    aspect-ratio: 0.78 / 1;
+    height: auto;
+  }
 
   .product-sequence-label {
     top: 7rem;
@@ -224,8 +231,12 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
   }
+  .drop-intro-figure .media-reveal {
+    height: auto;
+  }
   .drop-intro-figure img {
     aspect-ratio: 0.92 / 1;
+    height: auto;
   }
   .drop-intro-figure figcaption {
     padding-inline: 1rem;

@@ -122,7 +122,12 @@ export function CartDrawer({ open, items, onClose, onRemove, onUpdateQuantity }:
                           <Plus size={13} weight="light" aria-hidden="true" />
                         </button>
                       </div>
-                      <button type="button" className="cart-remove" onClick={() => onRemove(item.id)} aria-label={t.cartRemoveItem(tx(item.name, locale))}>
+                      <button
+                        type="button"
+                        className="cart-remove"
+                        onClick={() => onRemove(item.id)}
+                        aria-label={t.cartRemoveItem(tx(item.name, locale))}
+                      >
                         {t.cartRemove}
                       </button>
                     </div>

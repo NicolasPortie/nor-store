@@ -1,0 +1,55 @@
+.closing-section {
+  position: relative;
+  min-height: min(94dvh, 900px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(8rem, 14vw, 14rem) 0;
+}
+
+.closing-mark {
+  position: absolute;
+  top: 44%;
+  right: -0.1em;
+  color: rgba(11, 7, 7, 0.17);
+  font-family: var(--font-display);
+  font-size: clamp(24rem, 56vw, 64rem);
+  font-weight: 900;
+  line-height: 0.5;
+  transform: translateY(-50%);
+}
+
+.closing-content {
+  position: relative;
+  z-index: 1;
+}
+
+.closing-content h2 {
+  max-width: 8ch;
+  font-size: clamp(4.3rem, 9.2vw, 10.5rem);
+}
+
+.closing-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2.3rem;
+}
+
+.closing-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.closing-link:hover,
+.closing-link:focus-visible {
+  color: var(--paper);
+  border-color: var(--paper);
+}

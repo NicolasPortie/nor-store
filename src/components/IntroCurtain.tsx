@@ -24,17 +24,8 @@ export function IntroCurtain() {
       },
     });
 
-    timeline.fromTo(
-      mark,
-      { yPercent: 110 },
-      { yPercent: 0, duration: 0.85, ease: 'power4.out' },
-      0.08,
-    );
-    timeline.to(
-      curtain,
-      { yPercent: -100, duration: 0.95, ease: 'power4.inOut' },
-      0.68,
-    );
+    timeline.fromTo(mark, { yPercent: 110 }, { yPercent: 0, duration: 0.85, ease: 'power4.out' }, 0.08);
+    timeline.to(curtain, { yPercent: -100, duration: 0.95, ease: 'power4.inOut' }, 0.68);
 
     return () => {
       timeline.kill();

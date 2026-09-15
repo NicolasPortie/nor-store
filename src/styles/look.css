@@ -1,0 +1,136 @@
+.look-section {
+  position: relative;
+  min-height: 120dvh;
+  overflow: hidden;
+  padding: clamp(8rem, 13vw, 13rem) 0;
+}
+
+.look-frame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.56fr) minmax(20rem, 0.82fr) minmax(12rem, 0.46fr);
+  gap: clamp(1.2rem, 4vw, 4.5rem);
+  align-items: start;
+  width: min(100% - 3rem, 1350px);
+  margin-inline: auto;
+}
+
+.look-copy {
+  min-width: 0;
+  padding-top: clamp(1rem, 7vw, 7rem);
+  container-type: inline-size;
+}
+
+.look-copy h2 {
+  max-width: 100%;
+  font-size: clamp(3.5rem, 16cqi, 6rem);
+}
+
+.look-copy > p {
+  max-width: 17rem;
+  margin: 1.5rem 0 0;
+  color: rgba(11, 7, 7, 0.68);
+}
+
+.look-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.7rem;
+  padding: 0.7rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.look-cta:hover,
+.look-cta:focus-visible {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.look-portrait {
+  position: relative;
+  width: 100%;
+}
+
+.look-portrait img {
+  width: 100%;
+  aspect-ratio: 0.78 / 1;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
+.look-hotspot {
+  position: absolute;
+  display: block;
+  padding: 0.35rem 0.45rem;
+  border: 0;
+  color: var(--paper);
+  background: var(--ink);
+  line-height: 1;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.look-hotspot:hover,
+.look-hotspot:focus-visible {
+  color: var(--red);
+}
+
+.look-hotspot--chest {
+  top: 31%;
+  right: -1.8rem;
+}
+.look-hotspot--head {
+  top: 8%;
+  right: -1.8rem;
+}
+.look-hotspot--leg {
+  top: 60%;
+  left: -1.8rem;
+}
+.look-hotspot--shoe {
+  right: 6%;
+  bottom: 8%;
+}
+
+.look-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-top: clamp(5rem, 13vw, 13rem);
+}
+
+.look-detail-image {
+  position: relative;
+  width: 100%;
+}
+
+.look-detail-image img {
+  width: 100%;
+  aspect-ratio: 0.88 / 1;
+  object-fit: cover;
+}
+
+.look-detail-image--small {
+  width: 74%;
+  margin-left: auto;
+}
+
+.look-detail-image span {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(11, 7, 7, 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.11em;
+}

@@ -1,0 +1,255 @@
+.product-sequence {
+  position: relative;
+  z-index: 1;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.product-sequence-inner {
+  position: relative;
+  height: 100%;
+  width: min(100% - 3rem, 1500px);
+  margin-inline: auto;
+}
+
+.product-sequence-label,
+.product-detail-panel {
+  position: absolute;
+  z-index: 3;
+}
+
+.product-sequence-label {
+  top: clamp(7rem, 14vh, 10rem);
+  left: 0;
+  width: min(28rem, 38vw);
+}
+.nor-red .detail-callout {
+  color: rgba(11, 7, 7, 0.78);
+}
+
+.product-sequence-label h2 {
+  max-width: 9ch;
+  margin-top: 0.65rem;
+  font-size: clamp(3.3rem, 6.4vw, 6.8rem);
+}
+
+.product-sequence-label p {
+  margin: 1.2rem 0 0;
+  max-width: 22rem;
+  color: rgba(11, 7, 7, 0.88);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.nor-ink .product-sequence-label p {
+  color: rgba(245, 233, 226, 0.88);
+}
+
+.product-image-stage {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(54vw, 720px);
+  height: min(84vh, 820px);
+  transform: translate(-50%, -50%);
+}
+
+.product-image-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: contrast(1.04) saturate(0.96);
+}
+
+.product-detail-panel {
+  right: 0;
+  bottom: clamp(7rem, 15vh, 10rem);
+  width: min(20rem, 32vw);
+  overflow: visible;
+  color: var(--ink);
+}
+
+.nor-red .product-detail-panel {
+  color: #0b0707;
+}
+
+.product-detail-panel p {
+  margin: 0 0 1rem;
+  overflow: visible;
+  padding-bottom: 0.22em;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.55vw, 1.32rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.14;
+}
+
+.nor-ink .product-detail-panel {
+  color: var(--paper);
+}
+
+.detail-rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+  background: rgba(11, 7, 7, 0.4);
+}
+
+.nor-ink .detail-rule {
+  background: rgba(245, 233, 226, 0.3);
+}
+
+.detail-callout {
+  color: rgba(11, 7, 7, 0.82);
+  font-size: 0.78rem;
+}
+.nor-ink .detail-callout {
+  color: rgba(245, 233, 226, 0.78);
+}
+
+.sneaker-sequence {
+  background: var(--ink);
+}
+
+.sneaker-stage,
+.jacket-stage {
+  isolation: isolate;
+  overflow: visible;
+  background: transparent;
+}
+
+.sneaker-stage {
+  position: relative;
+  width: min(76vw, 980px);
+  height: min(82vh, 800px);
+}
+
+.sneaker-stage::before,
+.sneaker-stage::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+}
+
+.sneaker-stage::before {
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 58rem);
+  aspect-ratio: 16 / 9;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(197, 8, 14, 0.46) 0%,
+    rgba(197, 8, 14, 0.24) 52%,
+    transparent 78%
+  );
+  filter: blur(1.7rem);
+  opacity: 0.78;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.sneaker-stage::after {
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      var(--ink) 0%,
+      rgba(11, 7, 7, 0.76) 4%,
+      transparent 13%,
+      transparent 87%,
+      rgba(11, 7, 7, 0.76) 96%,
+      var(--ink) 100%
+    ),
+    linear-gradient(
+      180deg,
+      var(--ink) 0%,
+      rgba(11, 7, 7, 0.68) 6%,
+      transparent 17%,
+      transparent 83%,
+      rgba(11, 7, 7, 0.68) 94%,
+      var(--ink) 100%
+    );
+}
+
+.jacket-stage {
+  width: min(72vw, 920px);
+  height: min(88vh, 900px);
+}
+
+.jacket-stage img {
+  object-fit: contain;
+  object-position: center 46%;
+}
+
+.product-image-stage img.sneaker-shot {
+  position: absolute;
+  z-index: 1;
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 9%,
+      #000 19%,
+      #000 81%,
+      rgba(0, 0, 0, 0.35) 91%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 12%,
+      #000 22%,
+      #000 78%,
+      rgba(0, 0, 0, 0.35) 88%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 9%,
+      #000 19%,
+      #000 81%,
+      rgba(0, 0, 0, 0.35) 91%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 12%,
+      #000 22%,
+      #000 78%,
+      rgba(0, 0, 0, 0.35) 88%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+}
+
+.sneaker-sequence .product-detail-panel {
+  bottom: clamp(5.5rem, 12vh, 8.5rem);
+}

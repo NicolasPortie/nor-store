@@ -1,0 +1,105 @@
+.site-footer {
+  padding: clamp(5rem, 8vw, 8rem) 0 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.8fr) minmax(12rem, 0.8fr) minmax(15rem, 1fr);
+  gap: 3rem;
+}
+
+.footer-brand {
+  font-size: clamp(4rem, 8vw, 8rem);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-links > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.footer-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: rgba(245, 233, 226, 0.5);
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-soon {
+  margin: 0;
+  color: rgba(245, 233, 226, 0.62);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-newsletter form {
+  display: flex;
+  border-bottom: 1px solid rgba(245, 233, 226, 0.55);
+}
+
+.footer-newsletter input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.7rem 0;
+  border: 0;
+  outline: none;
+  color: var(--paper);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.footer-newsletter input::placeholder {
+  color: rgba(245, 233, 226, 0.42);
+}
+
+.footer-newsletter button {
+  display: grid;
+  place-items: center;
+  padding: 0.4rem 0 0.4rem 0.8rem;
+  border: 0;
+  color: var(--paper);
+  background: transparent;
+}
+
+.footer-newsletter button:hover,
+.footer-newsletter button:focus-visible {
+  color: var(--red);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(5rem, 10vw, 10rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: rgba(245, 233, 226, 0.5);
+}
+
+.footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}

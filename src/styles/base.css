@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  --ink: #0b0707;
+  --ink-soft: #140909;
+  --red: #c5080e;
+  --red-deep: #8e070b;
+  --paper: #f5e9e2;
+  --muted: rgba(245, 233, 226, 0.64);
+  --line: rgba(245, 233, 226, 0.23);
+  --line-dark: rgba(11, 7, 7, 0.26);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --font-display: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: auto;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.cart-is-open,
+html.nav-is-open,
+body.cart-is-open,
+body.nav-is-open {
+  overflow: hidden;
+}
+
+html.cart-is-open {
+  overscroll-behavior: none;
+}
+
+html.intro-lock,
+html.intro-lock body {
+  overflow: hidden;
+  height: 100%;
+}
+
+body.cart-is-open .site-header,
+body.cart-is-open .site-header > * {
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  min-height: 100dvh;
+}
+
+.content-frame {
+  width: min(100% - 3rem, 1440px);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.nor-red {
+  background: var(--red);
+  color: var(--ink);
+}
+.nor-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 50;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.7rem 0.9rem;
+  color: var(--ink);
+  background: var(--paper);
+  transform: translateY(-160%);
+  transition: transform 180ms var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}

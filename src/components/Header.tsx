@@ -112,18 +112,17 @@ export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => v
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            {menuOpen ? <X size={20} weight="light" aria-hidden="true" /> : <List size={20} weight="light" aria-hidden="true" />}
+            {menuOpen ? (
+              <X size={20} weight="light" aria-hidden="true" />
+            ) : (
+              <List size={20} weight="light" aria-hidden="true" />
+            )}
             <span className="sr-only">{menuOpen ? t.menuClose : t.menuOpen}</span>
           </button>
         </div>
       </header>
 
-      <div
-        ref={overlayRef}
-        className={`nav-overlay${menuOpen ? ' is-open' : ''}`}
-        id="mobile-nav"
-        inert={!menuOpen}
-      >
+      <div ref={overlayRef} className={`nav-overlay${menuOpen ? ' is-open' : ''}`} id="mobile-nav" inert={!menuOpen}>
         <nav aria-label={t.navMobileAria}>
           {navItems.map((item) => (
             <a href={item.href} key={item.href} onClick={closeMenu}>

@@ -1,0 +1,85 @@
+.brand-statement {
+  position: relative;
+  min-height: min(90dvh, 900px);
+  display: flex;
+  align-items: flex-end;
+  overflow-x: clip;
+  overflow-y: visible;
+  padding: clamp(7rem, 14vw, 14rem) 0 clamp(4rem, 8vw, 8rem);
+}
+
+.statement-ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(11, 7, 7, 0.16);
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 44vw, 48rem);
+  font-weight: 900;
+  letter-spacing: -0.15em;
+  line-height: 0.65;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+.statement-content {
+  position: relative;
+  z-index: 1;
+  padding-right: clamp(1rem, 8vw, 7rem);
+}
+
+.statement-content h2 {
+  max-width: 10ch;
+  overflow: visible;
+  font-size: clamp(3.8rem, 9vw, 9rem);
+  letter-spacing: -0.07em;
+}
+
+.statement-title-line {
+  display: block;
+}
+
+.statement-content > .statement-place {
+  margin: 1.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(11, 7, 7, 0.72);
+}
+
+.statement-content > p.reveal-text {
+  max-width: 34rem;
+  margin: 1.15rem 0 0;
+  color: rgba(11, 7, 7, 0.88);
+}
+
+.statement-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3.25rem;
+  width: min(100%, 34rem);
+  margin: 2.4rem 0 0;
+  padding: 1.35rem 0 0;
+  border-top: 1px solid rgba(11, 7, 7, 0.22);
+  list-style: none;
+}
+
+.statement-facts span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(11, 7, 7, 0.5);
+}
+
+.statement-facts strong {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}

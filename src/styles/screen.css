@@ -1,0 +1,218 @@
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+html.motion-pending .reveal-text,
+html.motion-pending .reveal-fade,
+html.motion-pending .product-tile-media,
+html.motion-pending .product-tile-meta,
+html.motion-pending .media-reveal,
+html.motion-pending .look-hotspot,
+html.motion-pending .hero-line > span {
+  visibility: hidden;
+}
+
+.media-reveal {
+  overflow: hidden;
+}
+.media-reveal img {
+  width: 100%;
+  display: block;
+}
+
+.look-cta:active,
+.tile-add:active,
+.bag-button:active,
+.closing-link:active,
+.text-link:active,
+.menu-toggle:active,
+.icon-button:active,
+.qty-button:active,
+.cart-checkout:active,
+.cart-continue:active {
+  transform: scale(0.97);
+}
+
+.bag-count {
+  display: inline-block;
+}
+
+.intro-curtain {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--red);
+  color: var(--ink);
+  pointer-events: auto;
+}
+
+.intro-curtain.is-done {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-mark {
+  margin: -0.12em;
+  padding: 0.12em;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: clamp(5.2rem, 18vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.86;
+}
+
+.intro-mark span {
+  display: block;
+}
+
+.lookbook-section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 100dvh;
+  padding: 5.5rem 0 1.25rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lookbook-heading {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  margin-bottom: 1.1rem;
+}
+
+.lookbook-heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4.4rem, 9vw, 9.5rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.92;
+  padding-bottom: 0.08em;
+  text-transform: uppercase;
+}
+
+.lookbook-heading p {
+  max-width: 24rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+}
+
+.lookbook-track {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  gap: 0.8rem;
+  min-height: 0;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  width: max-content;
+}
+
+.lookbook-card {
+  display: flex;
+  flex-direction: column;
+  min-width: min(38vw, 24rem);
+  height: 100%;
+  margin: 0;
+}
+
+.lookbook-media {
+  display: grid;
+  place-items: center;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--ink-soft);
+}
+
+.lookbook-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lookbook-card figcaption {
+  flex: 0 0 auto;
+  margin-top: 0.7rem;
+  color: rgba(245, 233, 226, 0.56);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.name-marquee {
+  overflow: hidden;
+  margin: 0 0 clamp(4rem, 8vw, 8rem);
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.name-marquee-track {
+  display: flex;
+  flex: 0 0 auto;
+  width: max-content;
+  gap: 0;
+  animation: marquee-shift 28s linear infinite;
+  will-change: transform;
+}
+
+.name-marquee-track span {
+  padding: 0 1.6rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes marquee-shift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.newsletter-success {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    opacity 280ms var(--ease-out),
+    transform 280ms var(--ease-out);
+}
+
+@starting-style {
+  .newsletter-success {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-tile:hover .product-tile-media img,
+  .product-tile:focus-within .product-tile-media img {
+    transform: scale(1.035);
+  }
+
+  .product-tile:hover .product-tile-model {
+    clip-path: inset(0 0 0 0);
+  }
+}

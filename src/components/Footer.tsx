@@ -40,7 +40,13 @@ export function Footer() {
               <label htmlFor="newsletter-email" className="sr-only">
                 {t.footerEmail}
               </label>
-              <input id="newsletter-email" type="email" placeholder={t.footerEmailPlaceholder} autoComplete="email" required />
+              <input
+                id="newsletter-email"
+                type="email"
+                placeholder={t.footerEmailPlaceholder}
+                autoComplete="email"
+                required
+              />
               <button type="submit" aria-label={t.footerEmailAria}>
                 <ArrowUpRight size={18} weight="light" aria-hidden="true" />
               </button>

@@ -1,0 +1,245 @@
+.bag-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.2rem;
+  border: 0;
+  color: var(--paper);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.bag-button:hover,
+.bag-button:focus-visible {
+  color: var(--red);
+}
+
+.sequence-section,
+.sequence-stage {
+  position: relative;
+  height: 100dvh;
+  min-height: 100dvh;
+}
+
+.sequence-section {
+  isolation: isolate;
+}
+
+.sequence-stage {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sequence-video {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.96) contrast(1.05);
+  transform: scale(1.015);
+}
+
+.sequence-scrim {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: rgba(11, 7, 7, 0.08);
+  pointer-events: none;
+}
+
+.film-ghost-mark {
+  position: absolute;
+  z-index: 3;
+  top: 48%;
+  left: 50%;
+  color: rgba(11, 7, 7, 0.18);
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 30vw, 34rem);
+  font-weight: 900;
+  letter-spacing: -0.16em;
+  line-height: 0.7;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.sequence-copy,
+.sequence-detail,
+.sequence-progress,
+.film-bottomline {
+  position: absolute;
+  z-index: 4;
+}
+
+.hero-title {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  width: max-content;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.09em 0.14em 0.16em 0.08em;
+  margin: -0.09em -0.14em -0.16em -0.08em;
+}
+
+.hero-beat {
+  display: flex;
+  flex-direction: column;
+  grid-area: 1 / 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-line {
+  display: block;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.hero-line > span {
+  display: block;
+}
+
+.film-kicker {
+  margin: 0 0 0.85rem;
+  color: rgba(245, 233, 226, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sequence-copy {
+  --sequence-copy-left: clamp(1.5rem, 7vw, 8rem);
+  --sequence-copy-right: clamp(1.25rem, 4vw, 3rem);
+  bottom: clamp(4.2rem, 9vh, 7rem);
+  left: var(--sequence-copy-left);
+  width: min(42rem, calc(100% - var(--sequence-copy-left) - var(--sequence-copy-right)));
+  max-width: calc(100% - var(--sequence-copy-left) - var(--sequence-copy-right));
+  container-type: inline-size;
+}
+
+.sequence-copy h1,
+.drop-intro-copy h2,
+.product-sequence-label h2,
+.statement-content h2,
+.collection-heading h2,
+.symbol-content h2,
+.campaign-copy h2,
+.closing-content h2,
+.look-copy h2,
+.lookbook-heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.92;
+  padding-bottom: 0.08em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sequence-copy h1 {
+  max-width: min(10ch, 100%);
+  color: var(--paper);
+  font-size: clamp(3.6rem, 8vw, 7.2rem);
+  font-size: clamp(3.6rem, min(8vw, 18cqi), 7.2rem);
+}
+
+.drop-intro-copy > p,
+.statement-content > p.reveal-text,
+.look-copy > p,
+.campaign-copy > p,
+.collection-heading > p,
+.lookbook-heading > p {
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: fit-content;
+  margin-top: 1.45rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+.text-link span,
+.closing-link svg,
+.look-cta svg,
+.footer-links svg,
+.footer-bottom svg {
+  transition: transform 180ms var(--ease-out);
+}
+
+.text-link:hover span,
+.text-link:focus-visible span,
+.closing-link:hover svg,
+.closing-link:focus-visible svg,
+.look-cta:hover svg,
+.look-cta:focus-visible svg,
+.footer-links a:hover svg,
+.footer-links a:focus-visible svg,
+.footer-bottom a:hover svg,
+.footer-bottom a:focus-visible svg {
+  transform: translate(2px, -2px);
+}
+
+.sequence-detail {
+  right: clamp(1.5rem, 7vw, 8rem);
+  bottom: clamp(6rem, 15vh, 10rem);
+  width: min(17rem, calc(100% - 3rem));
+  color: var(--paper);
+  opacity: 0;
+}
+
+.detail-copy {
+  margin: 0;
+  color: rgba(245, 233, 226, 0.82);
+}
+
+.film-bottomline {
+  right: clamp(1.5rem, 7vw, 8rem);
+  bottom: 3.15rem;
+  left: clamp(1.5rem, 7vw, 8rem);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(245, 233, 226, 0.72);
+}
+
+.sequence-progress {
+  right: clamp(1.5rem, 7vw, 8rem);
+  bottom: 2rem;
+  left: clamp(1.5rem, 7vw, 8rem);
+  height: 1px;
+  overflow: hidden;
+  background: rgba(245, 233, 226, 0.28);
+  transform-origin: left center;
+}
+
+.sequence-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  transform: scaleX(0);
+  transform-origin: left center;
+}

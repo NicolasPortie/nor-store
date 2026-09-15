@@ -36,7 +36,8 @@ export const copy = {
     sneakerCallout: 'NØR no cano',
     statementTitle: 'De São\nPaulo.',
     statementPlace: 'Drop 001  ·  2026',
-    statementBody: 'Oito peças em preto e vermelho. Jaqueta, cargo, gorro e o tênis 001. O primeiro drop da NØR, do estúdio para a rua.',
+    statementBody:
+      'Oito peças em preto e vermelho. Jaqueta, cargo, gorro e o tênis 001. O primeiro drop da NØR, do estúdio para a rua.',
     statementFacts: [
       { label: 'Origem', value: 'São Paulo' },
       { label: 'Peças', value: '08' },
@@ -142,7 +143,8 @@ export const copy = {
     sneakerCallout: 'NØR on the collar',
     statementTitle: 'From São\nPaulo.',
     statementPlace: 'Drop 001  ·  2026',
-    statementBody: 'Eight pieces in black and red. Jacket, cargo, beanie and the 001. NØR’s first drop, from the studio to the street.',
+    statementBody:
+      'Eight pieces in black and red. Jacket, cargo, beanie and the 001. NØR’s first drop, from the studio to the street.',
     statementFacts: [
       { label: 'Origin', value: 'São Paulo' },
       { label: 'Pieces', value: '08' },

@@ -1,0 +1,109 @@
+.collection-section {
+  padding: clamp(8rem, 14vw, 14rem) 0 clamp(9rem, 15vw, 15rem);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(4rem, 9vw, 10rem) clamp(1.2rem, 4vw, 4rem);
+}
+
+.product-tile {
+  position: relative;
+  min-width: 0;
+}
+
+.product-tile-media {
+  position: relative;
+  aspect-ratio: 0.9 / 1;
+  overflow: hidden;
+  background: var(--red);
+}
+
+.product-tile-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    clip-path 420ms var(--ease-out),
+    transform 900ms var(--ease-out),
+    filter 420ms var(--ease-out);
+}
+
+.product-tile-media > img:first-child {
+  object-fit: contain;
+  padding: 7%;
+  box-sizing: border-box;
+}
+
+.product-tile-model {
+  clip-path: inset(100% 0 0 0);
+  object-position: 50% 42%;
+  filter: saturate(0.8) contrast(1.1);
+}
+
+.product-tile:focus-within .product-tile-model,
+.product-tile-model.is-focused {
+  clip-path: inset(0 0 0 0);
+}
+
+.product-tile-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  padding-top: 1rem;
+}
+
+.tile-category {
+  color: rgba(245, 233, 226, 0.5);
+}
+
+.product-tile h3 {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.product-tile p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+}
+
+.tile-status {
+  color: var(--paper);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tile-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+  padding: 0.48rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(245, 233, 226, 0.5);
+  color: var(--paper);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tile-add:hover,
+.tile-add:focus-visible {
+  color: var(--red);
+  border-color: var(--red);
+}

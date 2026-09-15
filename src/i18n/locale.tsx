@@ -15,8 +15,7 @@ function readStoredLocale(): Locale {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'en' || stored === 'pt') return stored;
-  } catch {
-  }
+  } catch {}
   return 'pt';
 }
 
@@ -39,8 +38,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     setLocaleState(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-    }
+    } catch {}
   }, []);
 
   const value = useMemo(() => ({ locale, setLocale }), [locale, setLocale]);

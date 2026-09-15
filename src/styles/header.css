@@ -1,0 +1,233 @@
+.site-header {
+  position: fixed;
+  z-index: 70;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 64px;
+  padding: 0.7rem clamp(1rem, 3vw, 3.5rem);
+  background: transparent;
+  pointer-events: none;
+}
+
+.site-header > * {
+  pointer-events: auto;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  width: fit-content;
+}
+
+.brand-mark,
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.85;
+}
+
+.brand-mark {
+  font-size: 1.55rem;
+}
+
+.brand-subline,
+.tile-category,
+.look-hotspot,
+.footer-label,
+.footer-bottom,
+.drop-intro-figure figcaption,
+.film-bottomline,
+.detail-callout {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brand-subline {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-right: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lang-switch span {
+  opacity: 0.35;
+}
+
+.lang-switch button {
+  padding: 0.35rem 0.05rem;
+  border: 0;
+  color: var(--paper);
+  background: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  opacity: 0.38;
+  cursor: pointer;
+}
+
+.lang-switch button.is-active {
+  opacity: 1;
+}
+
+.lang-switch button:hover,
+.lang-switch button:focus-visible {
+  color: var(--red);
+  opacity: 1;
+}
+
+.menu-toggle {
+  display: none;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  color: var(--paper);
+  background: transparent;
+}
+
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -0.28rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms var(--ease-out);
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-overlay {
+  position: fixed;
+  z-index: 45;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 5.5rem 1.25rem 2.5rem;
+  background: var(--red);
+  color: var(--ink);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 280ms var(--ease-out),
+    visibility 0s 500ms;
+}
+
+.nav-overlay.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transition:
+    opacity 280ms var(--ease-out),
+    visibility 0s;
+}
+
+.nav-overlay nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.nav-overlay a {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 16vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.nav-overlay a span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 700ms var(--ease-out);
+}
+
+.nav-overlay.is-open a span {
+  transform: translateY(0);
+}
+.nav-overlay.is-open a:nth-child(1) span {
+  transition-delay: 40ms;
+}
+.nav-overlay.is-open a:nth-child(2) span {
+  transition-delay: 90ms;
+}
+.nav-overlay.is-open a:nth-child(3) span {
+  transition-delay: 140ms;
+}
+
+.site-nav a,
+.text-link,
+.closing-link,
+.footer-links a,
+.footer-bottom a,
+.look-cta,
+.tile-add,
+.bag-button,
+.menu-toggle,
+.icon-button,
+.qty-button,
+.lang-switch button {
+  transition:
+    color 180ms var(--ease-out),
+    opacity 180ms var(--ease-out),
+    border-color 180ms var(--ease-out),
+    transform 160ms var(--ease-out),
+    background 180ms var(--ease-out);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+  color: var(--red);
+}

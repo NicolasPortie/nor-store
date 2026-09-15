@@ -96,9 +96,7 @@ export function ScrollSequence() {
           ...viewportPin(section, 3200, 4),
           scrub: 0.65,
           onUpdate: (self) => {
-            showBeat(
-              Math.min(beats.length - 1, self.progress < 0.3 ? 0 : self.progress < 0.62 ? 1 : 2),
-            );
+            showBeat(Math.min(beats.length - 1, self.progress < 0.3 ? 0 : self.progress < 0.62 ? 1 : 2));
           },
         },
       });

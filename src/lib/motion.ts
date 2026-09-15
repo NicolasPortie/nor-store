@@ -1,14 +1,4 @@
-const LANDING_IDS = new Set([
-  'top',
-  'film',
-  'drop',
-  'about',
-  'look',
-  'fit',
-  'shop',
-  'system',
-  'campaign',
-]);
+const LANDING_IDS = new Set(['top', 'film', 'drop', 'about', 'look', 'fit', 'shop', 'system', 'campaign']);
 
 export function getLandingHash() {
   const id = window.location.hash.slice(1);

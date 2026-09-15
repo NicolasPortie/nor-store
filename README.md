@@ -1,8 +1,13 @@
 # NØR / Drop 001
 
-Uma storefront editorial para o primeiro drop da NØR. Em vez de começar por uma grade de produtos, a navegação acompanha uma sequência visual que apresenta materiais, silhuetas e detalhes antes de chegar à coleção.
+Storefront editorial do primeiro drop da NØR. Em vez de abrir numa grade de produtos, a navegação acompanha uma sequência visual que apresenta materiais, silhuetas e detalhes antes de chegar à coleção.
 
 Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
+
+## Preview
+
+![Personagem NØR no estúdio vermelho](public/assets/optimized/img2-personagem.webp)
+![Tênis NØR 001 no fundo vermelho](public/assets/optimized/nor-001-sneaker-packshot-red.webp)
 
 ## A experiência
 
@@ -16,11 +21,13 @@ Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
 
 - React 19 e TypeScript
 - Vite
-- GSAP + ScrollTrigger
-- CSS customizado
+- GSAP (ScrollTrigger, SplitText, ScrollToPlugin)
+- Tailwind CSS e CSS customizado
 - Phosphor Icons
 
 ## Rodando localmente
+
+Pré-requisito: Node.js 20.19+ ou 22.12+.
 
 ```bash
 npm install
@@ -35,4 +42,20 @@ npm run build
 npm run preview
 ```
 
+## Estrutura
+
+```
+src/
+  components/   Seções da página e UI (filme, sequências, lookbook, sacola)
+  data/         Catálogo de produtos e lookbook
+  i18n/         Conteúdo em português e inglês
+  lib/          Configuração do GSAP e utilidades de movimento
+```
+
+## Notas
+
 O projeto é uma experiência front-end. A sacola funciona no navegador e não inclui checkout ou processamento de pagamentos.
+
+## Licença
+
+Todos os direitos reservados à NØR.

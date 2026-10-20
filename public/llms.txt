@@ -1,7 +1,7 @@
-# NØR
+# NØR / Drop 001
 
-> NØR Drop 001: oito peças em preto e vermelho. Jaqueta, cargo, gorro, boné, camiseta e o tênis 001. Storefront editorial sem checkout.
+> Projeto de portfólio de front-end. A NØR é uma marca fictícia: não existe loja, produto à venda, checkout nem empresa com esse nome.
 
 ## Páginas
 
-- [Início](https://nor.nicolasportie.com/): filme de abertura, drop, lookbook e coleção.
+- [Início](https://nor.nicolasportie.com/): demo de landing editorial com filme guiado por scroll, lookbook e catálogo de demonstração.

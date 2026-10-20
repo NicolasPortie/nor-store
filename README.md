@@ -1,8 +1,10 @@
 # NØR / Drop 001
 
-Storefront editorial do primeiro drop da NØR. Em vez de abrir numa grade de produtos, a navegação acompanha uma sequência visual que apresenta materiais, silhuetas e detalhes antes de chegar à coleção.
+> **Projeto de portfólio, sem fins comerciais.** A NØR é uma marca fictícia criada só para este estudo de front-end. Não existe loja, produtos à venda, estoque, checkout nem empresa com esse nome. Personagens, peças e textos são conteúdo de demonstração.
 
-Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
+Demo de uma landing de e-commerce editorial, feita para praticar direção de arte, animação e interação na web. Em vez de abrir numa grade de produtos, a navegação acompanha uma sequência visual que apresenta materiais, silhuetas e detalhes antes de chegar à coleção.
+
+Demo online: [nor.nicolasportie.com](https://nor.nicolasportie.com)
 
 ## Preview
 
@@ -16,7 +18,7 @@ Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
 - Símbolo Ø em 3D (Three.js), carregado sob demanda e com fallback sem WebGL.
 - Sequências dedicadas para a Tech Shell e o NØR 001.
 - Lookbook horizontal e catálogo de oito peças.
-- Sacola persistida localmente no navegador.
+- Sacola de demonstração, persistida localmente no navegador (não finaliza compra).
 - Conteúdo em português e inglês.
 
 ## Stack
@@ -65,8 +67,8 @@ tests/            Testes de integridade do catálogo
 
 ## Notas
 
-O projeto é uma experiência front-end. A sacola funciona no navegador e não inclui checkout ou processamento de pagamentos.
+Este repositório é uma experiência front-end para portfólio. Os produtos são fictícios, a sacola só guarda dados no `localStorage` do navegador e não há checkout, pagamento, back-end ou coleta de dados: o formulário de newsletter e o e-mail de contato do rodapé também são apenas ilustrativos.
 
 ## Licença
 
-Todos os direitos reservados à NØR.
+Projeto pessoal de portfólio de Nicolas Portie. Todos os direitos reservados; as imagens e os textos não devem ser reutilizados sem autorização.

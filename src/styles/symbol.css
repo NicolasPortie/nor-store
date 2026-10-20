@@ -1,6 +1,6 @@
 .symbol-section {
   position: relative;
-  --stage-size: clamp(18rem, 32vw, 30rem);
+  --stage-size: clamp(20rem, 38vw, 36rem);
   min-height: min(94dvh, 920px);
   overflow: hidden;
   padding: calc(var(--stage-size) + clamp(5rem, 8vw, 8rem)) 0 clamp(6rem, 10vw, 10rem);
@@ -29,10 +29,19 @@
   pointer-events: none;
   transform: translateX(-50%);
   transition: opacity 900ms var(--ease-out);
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .symbol-stage.is-ready {
   opacity: 1;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.symbol-stage.is-dragging {
+  cursor: grabbing;
 }
 
 .symbol-giant {

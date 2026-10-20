@@ -316,6 +316,11 @@ export function PageMotion() {
         ScrollTrigger.sort();
         ScrollTrigger.refresh();
       };
+      const landingStart = performance.now();
+      const settleOnRefresh = () => {
+        if (!interacted && performance.now() - landingStart < 20000) scrollToHash();
+      };
+      ScrollTrigger.addEventListener('refresh', settleOnRefresh);
       const refreshAndSettle = () => {
         refresh();
         if (!interacted) scrollToHash();
@@ -335,6 +340,7 @@ export function PageMotion() {
         stopSmoothScroll();
         magnet.revert();
         if (onNavClick) document.removeEventListener('click', onNavClick);
+        ScrollTrigger.removeEventListener('refresh', settleOnRefresh);
         window.removeEventListener('load', refreshAndSettle);
         window.removeEventListener('hashchange', scrollToHash);
         takeOverEvents.forEach((name) => window.removeEventListener(name, takeOver));

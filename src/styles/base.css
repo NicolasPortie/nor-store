@@ -11,9 +11,10 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-  --font-display: 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --font-display: 'Archivo Variable', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --display-stretch: 68%;
 }
 
 * {
@@ -22,8 +23,9 @@
 
 html {
   min-width: 320px;
+  overflow-x: clip;
+  font-stretch: var(--display-stretch);
   scroll-behavior: auto;
-  scroll-padding-top: 80px;
 }
 
 body {

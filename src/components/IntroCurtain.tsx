@@ -14,10 +14,12 @@ export function IntroCurtain() {
     const mark = document.querySelector<HTMLElement>('.intro-curtain span');
     if (!curtain || !mark) return undefined;
 
+    let cancelled = false;
     root.classList.add('intro-lock');
     window.scrollTo(0, 0);
 
     const timeline = gsap.timeline({
+      paused: true,
       onComplete: () => {
         root.classList.remove('intro-lock');
         setDone(true);
@@ -27,7 +29,17 @@ export function IntroCurtain() {
     timeline.fromTo(mark, { yPercent: 110 }, { yPercent: 0, duration: 0.85, ease: 'power4.out' }, 0.08);
     timeline.to(curtain, { yPercent: -100, duration: 0.95, ease: 'power4.inOut' }, 0.68);
 
+    // Hold the curtain until the display face is ready so the mark never swaps fonts mid-reveal.
+    const fontReady = Promise.race([
+      document.fonts?.load('900 1em "Archivo Variable"') ?? Promise.resolve(),
+      new Promise((resolve) => window.setTimeout(resolve, 1200)),
+    ]);
+    void fontReady.then(() => {
+      if (!cancelled) timeline.play();
+    });
+
     return () => {
+      cancelled = true;
       timeline.kill();
       root.classList.remove('intro-lock');
     };

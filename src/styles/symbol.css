@@ -1,8 +1,9 @@
 .symbol-section {
   position: relative;
+  --stage-size: clamp(18rem, 32vw, 30rem);
   min-height: min(94dvh, 920px);
   overflow: hidden;
-  padding: clamp(8rem, 14vw, 14rem) 0;
+  padding: calc(var(--stage-size) + clamp(5rem, 8vw, 8rem)) 0 clamp(6rem, 10vw, 10rem);
 }
 
 .symbol-giant {
@@ -16,6 +17,30 @@
   line-height: 0.55;
   transform: translate(-50%, -50%);
   user-select: none;
+}
+
+.symbol-stage {
+  position: absolute;
+  top: clamp(3.5rem, 6vw, 6rem);
+  left: 50%;
+  width: var(--stage-size);
+  aspect-ratio: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 900ms var(--ease-out);
+}
+
+.symbol-stage.is-ready {
+  opacity: 1;
+}
+
+.symbol-giant {
+  transition: opacity 600ms var(--ease-out);
+}
+
+.symbol-section:has(.symbol-stage.is-ready) .symbol-giant {
+  opacity: 0;
 }
 
 .symbol-line {
@@ -75,7 +100,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.4vw, 3rem);
   font-weight: 900;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
   line-height: 0.9;
   text-transform: uppercase;
 }

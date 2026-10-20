@@ -3,7 +3,7 @@ import { ShoppingBagOpen } from '@phosphor-icons/react/dist/csr/ShoppingBagOpen'
 import { X } from '@phosphor-icons/react/dist/csr/X';
 import { useEffect, useRef, useState } from 'react';
 import { useCopy, useLocale } from '../i18n/locale';
-import { gsap, prefersReducedMotion, useGSAP } from '../lib/gsap';
+import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from '../lib/gsap';
 
 export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => void }) {
   const t = useCopy();
@@ -11,6 +11,7 @@ export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => v
   const [menuOpen, setMenuOpen] = useState(false);
   const countRef = useRef<HTMLSpanElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const previousCount = useRef(count);
 
   const navItems = [
@@ -48,6 +49,25 @@ export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => v
     { dependencies: [count] },
   );
 
+  // Tuck the header away while reading downwards and bring it back on any upward scroll.
+  useGSAP(
+    () => {
+      const header = headerRef.current;
+      if (!header || prefersReducedMotion()) return undefined;
+      const slide = gsap.quickTo(header, 'yPercent', { duration: 0.45, ease: 'power3.out' });
+      const trigger = ScrollTrigger.create({
+        start: 0,
+        end: 'max',
+        onUpdate: (self) => {
+          const hidden = self.direction === 1 && self.scroll() > 240;
+          slide(hidden ? -110 : 0);
+        },
+      });
+      return () => trigger.kill();
+    },
+    { scope: headerRef, dependencies: [] },
+  );
+
   const closeMenu = () => setMenuOpen(false);
 
   const langSwitch = (
@@ -76,7 +96,12 @@ export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => v
 
   return (
     <>
-      <header className="site-header" data-menu-open={menuOpen ? 'true' : 'false'}>
+      <header
+        ref={headerRef}
+        className="site-header"
+        data-menu-open={menuOpen ? 'true' : 'false'}
+        onFocus={() => gsap.to(headerRef.current, { yPercent: 0, duration: 0.3, overwrite: 'auto' })}
+      >
         <a className="brand-lockup" href="#top" aria-label={t.brandHome}>
           <span className="brand-mark">NØR</span>
         </a>
@@ -101,7 +126,7 @@ export function Header({ count, onOpenBag }: { count: number; onOpenBag: () => v
             aria-label={t.bag(count)}
           >
             <ShoppingBagOpen size={18} weight="light" aria-hidden="true" />
-            <span ref={countRef} className="bag-count">
+            <span ref={countRef} className="bag-count" aria-hidden="true">
               {String(count).padStart(2, '0')}
             </span>
           </button>

@@ -159,10 +159,12 @@
   .brand-statement,
   .look-section,
   .collection-section,
-  .symbol-section,
   .campaign-section,
   .closing-section {
     padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .symbol-section {
     padding-bottom: 7rem;
   }
   .lookbook-card {
@@ -281,7 +283,7 @@
   .product-detail-panel p {
     margin: 0 0 0.75rem;
     font-size: 0.98rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.007em;
     line-height: 1.18;
   }
   .detail-callout {
@@ -313,7 +315,7 @@
   .statement-content h2 {
     max-width: 100%;
     font-size: clamp(3.2rem, 13vw, 4.8rem);
-    letter-spacing: -0.08em;
+    letter-spacing: -0.04em;
     text-wrap: balance;
   }
 
@@ -417,6 +419,13 @@
   .symbol-giant {
     left: 68%;
     font-size: 54vw;
+  }
+  .symbol-section {
+    --stage-size: min(78vw, 20rem);
+    padding-top: calc(var(--stage-size) + 5rem);
+  }
+  .symbol-stage {
+    top: 3rem;
   }
   .symbol-line {
     left: -30%;

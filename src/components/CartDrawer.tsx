@@ -4,7 +4,7 @@ import { Plus } from '@phosphor-icons/react/dist/csr/Plus';
 import { X } from '@phosphor-icons/react/dist/csr/X';
 import { useEffect, useRef } from 'react';
 import { useCopy, useLocale } from '../i18n/locale';
-import { gsap } from '../lib/gsap';
+import { scrollToTarget } from '../lib/smooth-scroll';
 import { tx, type CartLine } from '../types';
 
 type CartDrawerProps = {
@@ -60,10 +60,7 @@ export function CartDrawer({ open, items, onClose, onRemove, onUpdateQuantity }:
     onClose();
     const destination = document.querySelector<HTMLElement>('#shop');
     if (!destination) return;
-    gsap.to(window, {
-      duration: 0.9,
-      ease: 'power3.inOut',
-      scrollTo: { y: destination, autoKill: true },
+    scrollToTarget(destination, {
       onComplete: () => {
         history.replaceState(null, '', '#shop');
       },
@@ -95,7 +92,7 @@ export function CartDrawer({ open, items, onClose, onRemove, onUpdateQuantity }:
           </div>
         ) : (
           <>
-            <div className="cart-lines">
+            <div className="cart-lines" data-lenis-prevent>
               {items.map((item) => (
                 <div className="cart-line" key={item.id}>
                   <img src={item.image} alt="" />

@@ -17,7 +17,7 @@
   font-family: var(--font-display);
   font-size: clamp(3rem, 13vw, 14rem);
   font-weight: 900;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.05em;
   line-height: 0.7;
   pointer-events: none;
   white-space: nowrap;
@@ -44,7 +44,7 @@
   padding: 0.12em 0.4em 0.14em 0.08em;
   margin: -0.12em -0.4em -0.14em -0.08em;
   font-size: clamp(3.4rem, 7vw, 8.2rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.03em;
 }
 
 .drop-intro-copy h2 .drop-title-line {

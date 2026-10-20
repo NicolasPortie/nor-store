@@ -62,7 +62,7 @@ html.motion-pending .hero-line > span {
   font-family: var(--font-display);
   font-size: clamp(5.2rem, 18vw, 12rem);
   font-weight: 900;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.05em;
   line-height: 0.86;
 }
 
@@ -94,7 +94,7 @@ html.motion-pending .hero-line > span {
   font-family: var(--font-display);
   font-size: clamp(4.4rem, 9vw, 9.5rem);
   font-weight: 900;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.045em;
   line-height: 0.92;
   padding-bottom: 0.08em;
   text-transform: uppercase;
@@ -168,12 +168,36 @@ html.motion-pending .hero-line > span {
   will-change: transform;
 }
 
+.name-marquee-track.is-driven {
+  animation: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  z-index: 75;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  mix-blend-mode: difference;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
 .name-marquee-track span {
   padding: 0 1.6rem;
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 3.4rem);
   font-weight: 900;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.04em;
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
@@ -215,4 +239,19 @@ html.motion-pending .hero-line > span {
   .product-tile:hover .product-tile-model {
     clip-path: inset(0 0 0 0);
   }
+}
+
+/* Ink on brand red is 3.25:1, so small copy on red surfaces switches to paper (5.2:1). */
+.nor-red
+  :is(
+    p:not(.symbol-name),
+    .text-link,
+    .closing-link,
+    .detail-callout,
+    .statement-facts span,
+    .statement-facts strong,
+    .symbol-index,
+    .symbol-place
+  ) {
+  color: var(--paper);
 }

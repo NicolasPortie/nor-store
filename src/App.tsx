@@ -9,14 +9,18 @@ import { LookSection } from './components/LookSection';
 import { NameMarquee } from './components/NameMarquee';
 import { PageMotion } from './components/PageMotion';
 import { ProductGrid } from './components/ProductGrid';
+import { ScrollProgress } from './components/ScrollProgress';
 import { ScrollSequence } from './components/ScrollSequence';
 import { SneakerSequence } from './components/SneakerSequence';
 import { products } from './data/catalog';
+import { useRef } from 'react';
+import { SymbolStage } from './components/SymbolStage';
 import { useCopy } from './i18n/locale';
 import { useBag } from './hooks/useBag';
 
 export function App() {
   const t = useCopy();
+  const symbolRef = useRef<HTMLElement>(null);
   const { cart, cartOpen, setCartOpen, count, addProducts, addToBag, removeFromBag, updateQuantity } = useBag();
 
   return (
@@ -52,6 +56,8 @@ export function App() {
                 <div className="media-reveal">
                   <img
                     src="/assets/optimized/img2-personagem.webp"
+                    width={1400}
+                    height={788}
                     alt={t.dropImageAlt}
                     loading="eager"
                     decoding="async"
@@ -108,10 +114,11 @@ export function App() {
             </div>
           </section>
 
-          <section id="system" className="symbol-section nor-red" aria-labelledby="symbol-title">
+          <section ref={symbolRef} id="system" className="symbol-section nor-red" aria-labelledby="symbol-title">
             <div className="symbol-giant ghost-type" aria-hidden="true">
               Ø
             </div>
+            <SymbolStage sectionRef={symbolRef} />
             <div className="symbol-line" aria-hidden="true" />
             <div className="symbol-content content-frame">
               <div className="symbol-copy">
@@ -134,7 +141,13 @@ export function App() {
 
           <section id="campaign" className="campaign-section nor-ink" aria-labelledby="campaign-title">
             <div className="campaign-media media-reveal">
-              <img src="/assets/optimized/img4-personagem.webp" alt={t.campaignAlt} loading="lazy" />
+              <img
+                src="/assets/optimized/img4-personagem.webp"
+                width={1400}
+                height={788}
+                alt={t.campaignAlt}
+                loading="lazy"
+              />
             </div>
             <div className="campaign-copy">
               <h2 id="campaign-title" className="reveal-text">
@@ -153,10 +166,10 @@ export function App() {
                 {t.closingTitle}
               </h2>
               <div className="closing-links reveal-fade">
-                <a className="closing-link" href="#shop">
+                <a className="closing-link" href="#shop" data-magnetic>
                   {t.closingShop} <ArrowUpRight size={18} weight="light" aria-hidden="true" />
                 </a>
-                <a className="closing-link" href="#look">
+                <a className="closing-link" href="#look" data-magnetic>
                   {t.closingLook} <ArrowUpRight size={18} weight="light" aria-hidden="true" />
                 </a>
               </div>
@@ -173,6 +186,7 @@ export function App() {
         onRemove={removeFromBag}
         onUpdateQuantity={updateQuantity}
       />
+      <ScrollProgress />
       <PageMotion />
       <IntroCurtain />
     </div>

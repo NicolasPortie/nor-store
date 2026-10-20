@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useLocale } from '../i18n/locale';
 import { gsap, prefersReducedMotion, ScrollTrigger, SplitText, useGSAP } from '../lib/gsap';
 import { getLandingHash, normalizeLandingHash } from '../lib/motion';
+import { scrollToTarget, startSmoothScroll } from '../lib/smooth-scroll';
 import { onceRevert, onSplitRevert } from '../lib/split-text';
 
 const passed = (element: Element, ratio = 0.88) => element.getBoundingClientRect().top < window.innerHeight * ratio;
@@ -90,6 +91,8 @@ export function PageMotion() {
           root.classList.remove('motion-ready', 'motion-reduced');
         };
       }
+
+      const stopSmoothScroll = startSmoothScroll();
 
       gsap.utils.toArray<HTMLElement>('.media-reveal').forEach((wrap) => {
         const image = wrap.querySelector('img');
@@ -248,6 +251,30 @@ export function PageMotion() {
         });
       });
 
+      const magnet = gsap.matchMedia();
+      magnet.add('(hover: hover) and (pointer: fine)', () => {
+        const cleanups = gsap.utils.toArray<HTMLElement>('[data-magnetic]').map((element) => {
+          const moveX = gsap.quickTo(element, 'x', { duration: 0.5, ease: 'power3.out' });
+          const moveY = gsap.quickTo(element, 'y', { duration: 0.5, ease: 'power3.out' });
+          const onMove = (event: PointerEvent) => {
+            const box = element.getBoundingClientRect();
+            moveX((event.clientX - (box.left + box.width / 2)) * 0.22);
+            moveY((event.clientY - (box.top + box.height / 2)) * 0.32);
+          };
+          const onLeave = () => {
+            moveX(0);
+            moveY(0);
+          };
+          element.addEventListener('pointermove', onMove);
+          element.addEventListener('pointerleave', onLeave);
+          return () => {
+            element.removeEventListener('pointermove', onMove);
+            element.removeEventListener('pointerleave', onLeave);
+          };
+        });
+        return () => cleanups.forEach((cleanup) => cleanup());
+      });
+
       const onNavClick = contextSafe?.((event: Event) => {
         const target = event.target;
         if (!(target instanceof Element)) return;
@@ -258,10 +285,7 @@ export function PageMotion() {
         const destination = document.querySelector<HTMLElement>(href);
         if (!destination) return;
         event.preventDefault();
-        gsap.to(window, {
-          duration: 0.9,
-          ease: 'power3.inOut',
-          scrollTo: { y: destination, autoKill: true },
+        scrollToTarget(destination, {
           onComplete: () => {
             history.replaceState(null, '', href);
           },
@@ -277,12 +301,24 @@ export function PageMotion() {
         if (!hash) return;
         const destination = document.querySelector<HTMLElement>(hash);
         if (!destination) return;
-        gsap.set(window, { scrollTo: destination });
+        scrollToTarget(destination, { immediate: true });
       };
+
+      // Late layout shifts (fonts, lazy images) move the target; re-land until the visitor takes over.
+      let interacted = false;
+      const takeOver = () => {
+        interacted = true;
+      };
+      const takeOverEvents = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const;
+      takeOverEvents.forEach((name) => window.addEventListener(name, takeOver, { passive: true, once: true }));
 
       const refresh = () => {
         ScrollTrigger.sort();
         ScrollTrigger.refresh();
+      };
+      const refreshAndSettle = () => {
+        refresh();
+        if (!interacted) scrollToHash();
       };
       normalizeLandingHash();
       requestAnimationFrame(() => {
@@ -291,14 +327,17 @@ export function PageMotion() {
         landingDone.current = true;
         scrollToHash();
       });
-      window.addEventListener('load', refresh);
+      window.addEventListener('load', refreshAndSettle);
       window.addEventListener('hashchange', scrollToHash);
-      void document.fonts?.ready.then(refresh);
+      void document.fonts?.ready.then(refreshAndSettle);
 
       return () => {
+        stopSmoothScroll();
+        magnet.revert();
         if (onNavClick) document.removeEventListener('click', onNavClick);
-        window.removeEventListener('load', refresh);
+        window.removeEventListener('load', refreshAndSettle);
         window.removeEventListener('hashchange', scrollToHash);
+        takeOverEvents.forEach((name) => window.removeEventListener(name, takeOver));
         root.classList.remove('motion-ready');
       };
     },

@@ -40,8 +40,8 @@
   margin-top: 1.7rem;
   padding: 0.7rem 0;
   border: 0;
-  border-bottom: 1px solid var(--ink);
-  color: var(--ink);
+  border-bottom: 1px solid var(--paper);
+  color: var(--paper);
   background: transparent;
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -51,8 +51,8 @@
 
 .look-cta:hover,
 .look-cta:focus-visible {
-  color: var(--paper);
-  border-color: var(--paper);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .look-portrait {
@@ -129,7 +129,7 @@
 .look-detail-image span {
   display: block;
   margin-top: 0.5rem;
-  color: rgba(11, 7, 7, 0.55);
+  color: var(--paper);
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.11em;

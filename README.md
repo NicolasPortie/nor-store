@@ -11,7 +11,9 @@ Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
 
 ## A experiência
 
-- Filme de abertura guiado pelo scroll.
+- Filme de abertura guiado pelo scroll, com vídeo codificado com keyframes densos para scrub suave.
+- Scroll inercial (Lenis) sincronizado com o ScrollTrigger.
+- Símbolo Ø em 3D (Three.js), carregado sob demanda e com fallback sem WebGL.
 - Sequências dedicadas para a Tech Shell e o NØR 001.
 - Lookbook horizontal e catálogo de oito peças.
 - Sacola persistida localmente no navegador.
@@ -21,7 +23,9 @@ Site: [nor.nicolasportie.com](https://nor.nicolasportie.com)
 
 - React 19 e TypeScript
 - Vite
-- GSAP (ScrollTrigger, SplitText, ScrollToPlugin)
+- GSAP (ScrollTrigger, SplitText, ScrollToPlugin) e Lenis
+- Three.js (cena do símbolo, carregada via import dinâmico)
+- Fontes locais: Archivo (variável, eixo de largura), Inter e JetBrains Mono
 - Tailwind CSS e CSS customizado
 - Phosphor Icons
 
@@ -54,7 +58,7 @@ src/
   data/           Catálogo de produtos e lookbook
   hooks/          Estado da sacola
   i18n/           Conteúdo em português e inglês
-  lib/            Configuração do GSAP e utilidades de movimento
+  lib/            GSAP, scroll suave (Lenis), cena 3D e utilidades de movimento
   styles/         CSS por seção
 tests/            Testes de integridade do catálogo
 ```

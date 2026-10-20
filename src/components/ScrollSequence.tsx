@@ -94,7 +94,7 @@ export function ScrollSequence() {
         defaults: { ease: 'none' },
         scrollTrigger: {
           ...viewportPin(section, 3200, 4),
-          scrub: 0.65,
+          scrub: 0.3,
           onUpdate: (self) => {
             showBeat(Math.min(beats.length - 1, self.progress < 0.3 ? 0 : self.progress < 0.62 ? 1 : 2));
           },
@@ -119,10 +119,25 @@ export function ScrollSequence() {
       if (bottom) sequence.to(bottom, { autoAlpha: 0, duration: 0.16 }, 0.84);
       if (progressTrack) sequence.to(progressTrack, { autoAlpha: 0, duration: 0.16 }, 0.84);
 
+      const placeBeats = () => {
+        beats = currentBeats();
+        const index = Math.max(activeBeat, 0);
+        beats.forEach((beat, i) => {
+          const offset = beat.offsetHeight + 28;
+          gsap.set(beat, { y: i === index ? 0 : i < index ? -offset : offset });
+        });
+      };
+      ScrollTrigger.addEventListener('refreshInit', placeBeats);
+      void document.fonts?.ready.then(() => {
+        placeBeats();
+        ScrollTrigger.refresh();
+      });
+
       const refresh = () => ScrollTrigger.refresh();
       video.addEventListener('loadedmetadata', refresh);
 
       return () => {
+        ScrollTrigger.removeEventListener('refreshInit', placeBeats);
         video.removeEventListener('loadedmetadata', refresh);
         if (seekFrame) cancelAnimationFrame(seekFrame);
       };

@@ -16,7 +16,7 @@
   font-family: var(--font-display);
   font-size: clamp(14rem, 44vw, 48rem);
   font-weight: 900;
-  letter-spacing: -0.15em;
+  letter-spacing: -0.075em;
   line-height: 0.65;
   transform: translate(-50%, -50%);
   user-select: none;
@@ -32,7 +32,7 @@
   max-width: 10ch;
   overflow: visible;
   font-size: clamp(3.8rem, 9vw, 9rem);
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
 }
 
 .statement-title-line {
@@ -80,6 +80,6 @@
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }

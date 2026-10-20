@@ -26,6 +26,7 @@ export function LookSection({
           <p className="reveal-text">{t.lookBody}</p>
           <button
             className="look-cta reveal-fade"
+            data-magnetic
             type="button"
             onClick={() => onAddLook([jacket, cargo, sneaker, beanie])}
           >
@@ -36,7 +37,13 @@ export function LookSection({
 
         <div className="look-portrait">
           <div className="media-reveal">
-            <img src="/assets/optimized/nor-human-look-beanie-catalog.webp" alt={t.lookPortraitAlt} loading="lazy" />
+            <img
+              src="/assets/optimized/nor-human-look-beanie-catalog.webp"
+              width={1280}
+              height={1920}
+              alt={t.lookPortraitAlt}
+              loading="lazy"
+            />
           </div>
           <button className="look-hotspot look-hotspot--chest" type="button" onClick={() => onAdd(jacket)}>
             {t.lookJacket}
@@ -55,13 +62,25 @@ export function LookSection({
         <div className="look-stack">
           <div className="look-detail-image">
             <div className="media-reveal">
-              <img src="/assets/optimized/nor-human-shell-detail.webp" alt={t.lookShellAlt} loading="lazy" />
+              <img
+                src="/assets/optimized/nor-human-shell-detail.webp"
+                width={1280}
+                height={1920}
+                alt={t.lookShellAlt}
+                loading="lazy"
+              />
             </div>
             <span>{t.lookJacket}</span>
           </div>
           <div className="look-detail-image look-detail-image--small">
             <div className="media-reveal">
-              <img src="/assets/optimized/nor-human-woman-look-cap.webp" alt={t.lookWomanAlt} loading="lazy" />
+              <img
+                src="/assets/optimized/nor-human-woman-look-cap.webp"
+                width={1280}
+                height={1920}
+                alt={t.lookWomanAlt}
+                loading="lazy"
+              />
             </div>
             <span>{t.lookCap}</span>
           </div>

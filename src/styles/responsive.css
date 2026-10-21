@@ -24,6 +24,10 @@
     justify-self: start;
   }
 
+  .drop-intro-word {
+    display: none;
+  }
+
   .drop-intro-copy {
     padding-top: 0;
   }
@@ -180,10 +184,6 @@
   }
   .lookbook-card {
     scroll-snap-align: start;
-  }
-
-  .drop-intro-word {
-    display: none;
   }
 
   .drop-intro-copy h2,

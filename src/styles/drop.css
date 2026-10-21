@@ -11,13 +11,14 @@
 
 .drop-intro-word {
   position: absolute;
-  right: clamp(1rem, 5vw, 5rem);
+  left: clamp(1rem, 3vw, 3rem);
   bottom: clamp(2.5rem, 8vh, 6rem);
   color: rgba(11, 7, 7, 0.08);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 13vw, 14rem);
+  font-size: clamp(3rem, 10vw, 12rem);
   font-weight: 900;
   letter-spacing: -0.05em;
+  word-spacing: 0.16em;
   line-height: 0.7;
   pointer-events: none;
   white-space: nowrap;

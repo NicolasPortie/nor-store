@@ -2,6 +2,8 @@ node_modules/
 dist/
 output/
 .playwright-cli/
+.claude/
+.wrangler/
 scripts/_cutout-preview/
 
 # Originais e utilitários locais de preparação de imagem.

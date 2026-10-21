@@ -62,7 +62,7 @@ src/
   i18n/           Conteúdo em português e inglês
   lib/            GSAP, scroll suave (Lenis), cena 3D e utilidades de movimento
   styles/         CSS por seção
-tests/            Testes de integridade do catálogo
+tests/            Testes do catálogo e das utilidades de movimento
 ```
 
 ## Notas
